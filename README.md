@@ -56,6 +56,18 @@ This is the current shipped source, not the first drop.
 
 ## Install
 
+### 1. GitHub Deploy Desk (recommended)
+
+One-click deploy this repository with [GitHub Deploy Desk](https://github.com/axioxmedia/github-deployer).
+
+1. Get the deployer: [axioxmedia/github-deployer](https://github.com/axioxmedia/github-deployer)
+2. Paste this repo URL into Deploy Desk: `https://github.com/axioxmedia/Image_Background_Remover`
+3. Read the README in the app, then confirm deploy.
+
+That is the supported install path. Use the source / EXE steps below only if you already have a local checkout.
+
+### 2. Run from source or freeze an EXE
+
 | Platform | Package | Guide |
 |---|---|---|
 | Windows 10/11 | `dist\BgKeyDesk.exe` after a local build | [HOW_TO_BUILD.txt](HOW_TO_BUILD.txt) |
