@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/brand/logo.png" type="image/png" />
+  <title>BG Key Desk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body class="aio-app axiox-shell">
+  <div class="bg-grid"></div>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <img class="mark-img" src="/brand/logo.png" alt="Axiox Media" />
+        <div>
+          <h1 data-i18n="appTitle">去背景台</h1>
+          <p data-i18n="appSubtitle">先转成 PNG，再自动抠图或色键去背景</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <div class="lang-switch" id="uiLangSwitch">
+          <button type="button" data-ui-lang="zh">中文</button>
+          <button type="button" data-ui-lang="en">EN</button>
+        </div>
+        <div class="chip" id="brandChip">Axiox Media</div>
+      </div>
+    </header>
+
+    <section class="stage">
+      <article class="card panel">
+        <div class="kicker">BG Key</div>
+        <h2 data-i18n="formTitle">投放一张图</h2>
+
+        <div class="drop" id="dropZone" tabindex="0">
+          <input id="fileInput" type="file" accept="image/*" hidden />
+          <p class="drop-title" data-i18n="dropTitle">把图片拖到这里</p>
+          <p class="drop-hint" data-i18n="dropHint">JPG / PNG / WEBP / BMP / GIF / TIFF</p>
+          <button class="soft" id="pickFile" type="button" data-i18n="browse">选择文件</button>
+          <p class="file-name" id="fileName"></p>
+        </div>
+
+        <label data-i18n="modeLabel">去背景方式</label>
+        <div class="mode-row">
+          <label class="mode">
+            <input type="radio" name="mode" value="auto" checked />
+            <span data-i18n="modeAuto">自动</span>
+          </label>
+          <label class="mode">
+            <input type="radio" name="mode" value="chroma" />
+            <span data-i18n="modeChroma">强制颜色 / 色键</span>
+          </label>
+        </div>
+
+        <div class="chroma-box" id="chromaBox">
+          <div class="split-2">
+            <div>
+              <label for="keyColor" data-i18n="colorLabel">键色</label>
+              <div class="color-row">
+                <input id="keyColor" type="color" value="#00ff00" />
+                <input id="keyHex" type="text" value="#00ff00" maxlength="7" />
+              </div>
+              <p class="hint" data-i18n="sampleHint">也可以点预览图吸取颜色</p>
+            </div>
+            <div>
+              <label for="strength" data-i18n="strengthLabel">强度</label>
+              <input id="strength" type="range" min="0.001" max="1" step="0.001" value="0.001" />
+              <p class="hint" id="strengthValue">0.001</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="primary" id="cutBtn" type="button" data-i18n="cutBtn" disabled>去除背景</button>
+        <button class="soft" id="saveBtn" type="button" data-i18n="saveBtn" disabled>另存为 PNG</button>
+        <p class="hint" id="statusHint" data-i18n="idleHint">先拖入图片，会自动转成 PNG。</p>
+      </article>
+
+      <article class="card panel preview-panel">
+        <div class="preview-head">
+          <div>
+            <div class="kicker">Preview</div>
+            <h2 data-i18n="previewTitle">原图 / 结果</h2>
+          </div>
+          <div class="tabs">
+            <button type="button" class="tab on" data-view="preview" data-i18n="tabSrc">PNG 原图</button>
+            <button type="button" class="tab" data-view="result" data-i18n="tabOut">去背景</button>
+          </div>
+        </div>
+        <div class="stage-frame checker" id="frame">
+          <p class="empty" id="emptyPreview" data-i18n="previewEmpty">还没有图片</p>
+          <canvas id="view" hidden></canvas>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <div class="modal-bg" id="modal">
+    <div class="modal">
+      <div class="kicker">Progress</div>
+      <h3 id="modalTitle">工作中</h3>
+      <p id="modalText">请稍候</p>
+      <div class="progress on"><div class="bar" id="bar"></div></div>
+      <p class="hint" id="modalPct">0%</p>
+      <p class="hint eta" id="modalEta"></p>
+    </div>
+  </div>
+
+  <script src="/assets/app.js"></script>
+</body>
+</html>
