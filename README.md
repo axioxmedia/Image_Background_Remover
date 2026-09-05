@@ -1,16 +1,35 @@
 <div align="center">
-  <h1>BG Key Desk</h1>
-  <p><sub>去背景台 · v1.1</sub></p>
-  <h3>Drop any image, normalize it to PNG, then cut the background on your own machine.</h3>
-  <p>Automatic cutout or chroma key. Forced color + strength from <code>0.001</code> to <code>1.0</code>.</p>
-  <p>
-    <a href="#install">Install</a> ·
-    <a href="#whats-in-1-1">v1.1</a> ·
-    <a href="#features">Features</a> ·
-    <a href="#requirements">Requirements</a> ·
-    <a href="#architecture">Architecture</a> ·
-    <a href="#documentation">Docs</a>
-  </p>
+
+# BG Key Desk
+
+**Packed via Axiox Media**
+
+Drop any image, normalize it to PNG, then auto-cut or chroma-key the background.
+
+<p>
+  <a href="docs/README-zh.md"><img src="https://img.shields.io/badge/中文说明-README--zh-e7c07a?style=for-the-badge" alt="Chinese README" /></a>
+</p>
+
+<p>
+  <a href="#install">Install</a> ·
+  <a href="#whats-in-1-1">v1.1</a> ·
+  <a href="#features">Features</a> ·
+  <a href="#requirements">Requirements</a> ·
+  <a href="#architecture">Architecture</a> ·
+  <a href="#documentation">FAQ</a>
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/platform-Windows_10%2F11-0b0d12?style=flat-square" alt="Windows" />
+  <img src="https://img.shields.io/badge/python-3.11%2B-e7c07a?style=flat-square" alt="Python" />
+  <img src="https://img.shields.io/badge/ui-zh%20%2F%20en-7ee0c6?style=flat-square" alt="i18n" />
+  <img src="https://img.shields.io/badge/cut-auto%20%2B%20chroma-c9a227?style=flat-square" alt="cut modes" />
+</p>
+
+</div>
+
+<div align="center">
+  <img src="docs/APPCap.png" alt="BG Key Desk preview" width="100%" />
 </div>
 
 > [!NOTE]
@@ -19,7 +38,9 @@
 > The first **Auto** cut downloads `u2net` into `~/.u2net`. Later runs reuse the file and, in the same session, the loaded ONNX session.
 
 > [!WARNING]
-> Do not commit `.venv`, `dist/`, `build/`, `work/`, `*.exe`, `bg_key_desk.log`, or `model_eta.json`. Those are local runtime artifacts.
+> Prefer **[GitHub Deploy Desk](https://github.com/axioxmedia/github-deployer)** to pull this repository. Do not commit `.venv`, `dist/`, `build/`, `work/`, `*.exe`, `bg_key_desk.log`, or `model_eta.json`.
+
+---
 
 ## At a glance
 
@@ -180,3 +201,5 @@ python app.py --web
 Save As then falls back to the browser download path if the native dialog is missing.
 
 </details>
+
+Packed via Axiox Media · [axiox.media](https://axiox.media)
