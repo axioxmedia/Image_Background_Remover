@@ -38,7 +38,7 @@ Drop any image, normalize it to PNG, then auto-cut or chroma-key the background.
 > The first **Auto** cut downloads `u2net` into `~/.u2net`. Later runs reuse the file and, in the same session, the loaded ONNX session.
 
 > [!WARNING]
-> Prefer **[GitHub Deploy Desk](https://github.com/axioxmedia/github-deployer)** to pull this repository. Do not commit `.venv`, `dist/`, `build/`, `work/`, `*.exe`, `bg_key_desk.log`, or `model_eta.json`.
+> Prefer **[GitHub Deploy Desk](https://github.com/axioxmedia/github-deployer)** to pull this repository. An unsigned EXE may trip SmartScreen.
 
 ---
 
